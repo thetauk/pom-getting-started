@@ -7,9 +7,9 @@ export const findElement = async (
   elementLocator: string,
   timeout: number = MAX_ELEMENT_THRESHOLD
 ): Promise<Element<any>> => {
-  const loginButton: Element<any> = await driver.$(elementLocator);
-  await loginButton.waitForExist({ timeout: timeout });
-  return loginButton;
+  const e: Element<any> = await driver.$(elementLocator);
+  await e.waitForExist({ timeout: timeout });
+  return e;
 };
 
 export const clickElement = async (
@@ -17,12 +17,12 @@ export const clickElement = async (
   elementLocator: string,
   timeout: number = MAX_ELEMENT_THRESHOLD
 ): Promise<void> => {
-  const loginButton: Element<any> = await findElement(
+  const e: Element<any> = await findElement(
     driver,
     elementLocator,
     timeout
   );
-  await loginButton.click();
+  await e.click();
 };
 
 export const setValueOfElement = async (
@@ -31,10 +31,10 @@ export const setValueOfElement = async (
   timeout: number = MAX_ELEMENT_THRESHOLD,
   value: string = ""
 ): Promise<void> => {
-  const loginButton: Element<any> = await findElement(
+  const e: Element<any> = await findElement(
     driver,
     elementLocator,
     timeout
   );
-  await loginButton.setValue(value);
+  await e.setValue(value);
 };
